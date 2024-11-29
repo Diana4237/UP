@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.props')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
+  <Import Project="..\packages\xunit.core.2.9.2\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.9.2\build\xunit.core.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFA9C725-7B81-4EFB-A463-0AA929806557}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UP</RootNamespace>
+    <AssemblyName>UP</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeCoverage.17.12.0\lib\net462\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.3\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.9.2.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.9.2\lib\netstandard1.1\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.9.2.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.9.2\lib\net452\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.9.2.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.9.2\lib\net452\xunit.execution.desktop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Models\car.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\car_colors.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\driver.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\engine_types.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\history_hanges_statuses.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\licence.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\penalties.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\region.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\status_licence.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\status_penalties.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\type_of_drive.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditPenaltie.xaml.cs">
+      <DependentUpon>EditPenaltie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PenaltiesWindow.xaml.cs">
+      <DependentUpon>PenaltiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Windows\DriverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditDriver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditPenaltie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\DriverWindow.xaml.cs">
+      <DependentUpon>DriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditDriver.xaml.cs">
+      <DependentUpon>EditDriver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\PenaltiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gibdd_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\001-happy-18.png" />
+    <Resource Include="Images\002-cool-5.png" />
+    <Resource Include="Images\003-happy-17.png" />
+    <Resource Include="Images\004-surprised-9.png" />
+    <Resource Include="Images\005-shocked-4.png" />
+    <Resource Include="Images\006-shocked-3.png" />
+    <Resource Include="Images\007-nervous-2.png" />
+    <Resource Include="Images\008-nervous-1.png" />
+    <Resource Include="Images\009-angry-6.png" />
+    <Resource Include="Images\010-drool.png" />
+    <Resource Include="Images\011-tired-2.png" />
+    <Resource Include="Images\012-tongue-7.png" />
+    <Resource Include="Images\013-tongue-6.png" />
+    <Resource Include="Images\014-tongue-5.png" />
+    <Resource Include="Images\015-smile-1.png" />
+    <Resource Include="Images\016-sleeping-1.png" />
+    <Resource Include="Images\017-nervous.png" />
+    <Resource Include="Images\018-surprised-8.png" />
+    <Resource Include="Images\019-tongue-4.png" />
+    <Resource Include="Images\020-happy-16.png" />
+    <Resource Include="Images\021-wink-1.png" />
+    <Resource Include="Images\022-laughing-2.png" />
+    <Resource Include="Images\023-laughing-1.png" />
+    <Resource Include="Images\024-sweat-1.png" />
+    <Resource Include="Images\025-happy-15.png" />
+    <Resource Include="Images\026-happy-14.png" />
+    <Resource Include="Images\027-laughing.png" />
+    <Resource Include="Images\028-happy-13.png" />
+    <Resource Include="Images\029-happy-12.png" />
+    <Resource Include="Images\030-crying-8.png" />
+    <Resource Include="Images\031-crying-7.png" />
+    <Resource Include="Images\032-bored.png" />
+    <Resource Include="Images\033-cool-4.png" />
+    <Resource Include="Images\034-angry-5.png" />
+    <Resource Include="Images\035-sad-14.png" />
+    <Resource Include="Images\036-angry-4.png" />
+    <Resource Include="Images\037-happy-11.png" />
+    <Resource Include="Images\038-angry-3.png" />
+    <Resource Include="Images\039-cyclops-1.png" />
+    <Resource Include="Images\040-surprised-7.png" />
+    <Resource Include="Images\041-thinking-2.png" />
+    <Resource Include="Images\042-book.png" />
+    <Resource Include="Images\043-baby-boy.png" />
+    <Resource Include="Images\044-dead-1.png" />
+    <Resource Include="Images\045-star.png" />
+    <Resource Include="Images\046-dubious.png" />
+    <Resource Include="Images\047-phone-call.png" />
+    <Resource Include="Images\048-moon.png" />
+    <Resource Include="Images\049-robot.png" />
+    <Resource Include="Images\050-flower.png" />
+    <Resource Include="Images\051-happy-10.png" />
+    <Resource Include="Images\052-happy-9.png" />
+    <Resource Include="Images\053-tired-1.png" />
+    <Resource Include="Images\054-ugly-3.png" />
+    <Resource Include="Images\055-tongue-3.png" />
+    <Resource Include="Images\056-vampire.png" />
+    <Resource Include="Images\057-music-1.png" />
+    <Resource Include="Images\058-popcorn.png" />
+    <Resource Include="Images\059-nurse.png" />
+    <Resource Include="Images\060-sad-13.png" />
+    <Resource Include="Images\061-graduated-1.png" />
+    <Resource Include="Images\062-happy-8.png" />
+    <Resource Include="Images\063-hungry.png" />
+    <Resource Include="Images\064-police.png" />
+    <Resource Include="Images\065-crying-6.png" />
+    <Resource Include="Images\066-happy-7.png" />
+    <Resource Include="Images\067-sun.png" />
+    <Resource Include="Images\068-father-2.png" />
+    <Resource Include="Images\069-happy-6.png" />
+    <Resource Include="Images\070-late.png" />
+    <Resource Include="Images\071-heart.png" />
+    <Resource Include="Images\072-sick-3.png" />
+    <Resource Include="Images\073-sad-12.png" />
+    <Resource Include="Images\074-in-love-10.png" />
+    <Resource Include="Images\075-shocked-2.png" />
+    <Resource Include="Images\076-happy-5.png" />
+    <Resource Include="Images\077-shocked-1.png" />
+    <Resource Include="Images\078-cool-3.png" />
+    <Resource Include="Images\079-crying-5.png" />
+    <Resource Include="Images\080-zombie.png" />
+    <Resource Include="Images\081-pain.png" />
+    <Resource Include="Images\082-cyclops.png" />
+    <Resource Include="Images\083-sweat.png" />
+    <Resource Include="Images\084-thief.png" />
+    <Resource Include="Images\085-sad-11.png" />
+    <Resource Include="Images\086-kiss-4.png" />
+    <Resource Include="Images\087-father-1.png" />
+    <Resource Include="Images\088-father.png" />
+    <Resource Include="Images\089-angel-1.png" />
+    <Resource Include="Images\090-happy-4.png" />
+    <Resource Include="Images\091-sad-10.png" />
+    <Resource Include="Images\092-outrage-1.png" />
+    <Resource Include="Images\093-ugly-2.png" />
+    <Resource Include="Images\094-ugly-1.png" />
+    <Resource Include="Images\095-scared.png" />
+    <Resource Include="Images\096-tongue-2.png" />
+    <Resource Include="Images\097-sad-9.png" />
+    <Resource Include="Images\098-nerd-9.png" />
+    <Resource Include="Images\099-greed-2.png" />
+    <Resource Include="Images\100-whistle.png" />
+    <Resource Include="Images\101-nerd-8.png" />
+    <Resource Include="Images\102-muted-4.png" />
+    <Resource Include="Images\103-in-love-9.png" />
+    <Resource Include="Images\104-in-love-8.png" />
+    <Resource Include="Images\105-kiss-3.png" />
+    <Resource Include="Images\106-in-love-7.png" />
+    <Resource Include="Images\107-ugly.png" />
+    <Resource Include="Images\108-nerd-7.png" />
+    <Resource Include="Images\109-nerd-6.png" />
+    <Resource Include="Images\110-crying-4.png" />
+    <Resource Include="Images\111-muted-3.png" />
+    <Resource Include="Images\112-nerd-5.png" />
+    <Resource Include="Images\113-kiss-2.png" />
+    <Resource Include="Images\114-greed-1.png" />
+    <Resource Include="Images\115-pirate-1.png" />
+    <Resource Include="Images\116-music.png" />
+    <Resource Include="Images\117-confused-2.png" />
+    <Resource Include="Images\118-nerd-4.png" />
+    <Resource Include="Images\119-greed.png" />
+    <Resource Include="Images\120-nerd-3.png" />
+    <Resource Include="Images\121-crying-3.png" />
+    <Resource Include="Images\122-cheering.png" />
+    <Resource Include="Images\123-surprised-6.png" />
+    <Resource Include="Images\124-muted-2.png" />
+    <Resource Include="Images\125-sick-2.png" />
+    <Resource Include="Images\126-graduated.png" />
+    <Resource Include="Images\127-angry-2.png" />
+    <Resource Include="Images\128-in-love-6.png" />
+    <Resource Include="Images\129-cool-2.png" />
+    <Resource Include="Images\130-confused-1.png" />
+    <Resource Include="Images\131-sad-8.png" />
+    <Resource Include="Images\132-nerd-2.png" />
+    <Resource Include="Images\133-birthday-boy.png" />
+    <Resource Include="Images\134-surprised-5.png" />
+    <Resource Include="Images\135-selfie.png" />
+    <Resource Include="Images\136-tongue-1.png" />
+    <Resource Include="Images\137-smart-1.png" />
+    <Resource Include="Images\138-smart.png" />
+    <Resource Include="Images\139-surprised-4.png" />
+    <Resource Include="Images\140-3d-glasses.png" />
+    <Resource Include="Images\141-in-love-5.png" />
+    <Resource Include="Images\142-sleeping.png" />
+    <Resource Include="Images\143-pirate.png" />
+    <Resource Include="Images\144-santa-claus.png" />
+    <Resource Include="Images\145-wink.png" />
+    <Resource Include="Images\146-in-love-4.png" />
+    <Resource Include="Images\147-tired.png" />
+    <Resource Include="Images\148-bang.png" />
+    <Resource Include="Images\149-baby.png" />
+    <Resource Include="Images\150-tongue.png" />
+    <Resource Include="Images\151-sick-1.png" />
+    <Resource Include="Images\152-outrage.png" />
+    <Resource Include="Images\153-injury.png" />
+    <Resource Include="Images\154-dead.png" />
+    <Resource Include="Images\155-rich-1.png" />
+    <Resource Include="Images\156-sick.png" />
+    <Resource Include="Images\157-angel.png" />
+    <Resource Include="Images\158-nerd-1.png" />
+    <Resource Include="Images\159-crying-2.png" />
+    <Resource Include="Images\160-crying-1.png" />
+    <Resource Include="Images\161-muted-1.png" />
+    <Resource Include="Images\162-surprised-3.png" />
+    <Resource Include="Images\163-crying.png" />
+    <Resource Include="Images\164-sad-7.png" />
+    <Resource Include="Images\165-cool-1.png" />
+    <Resource Include="Images\166-happy-3.png" />
+    <Resource Include="Images\167-thinking-1.png" />
+    <Resource Include="Images\168-muted.png" />
+    <Resource Include="Images\169-confused.png" />
+    <Resource Include="Images\170-happy-2.png" />
+    <Resource Include="Images\171-thinking.png" />
+    <Resource Include="Images\172-nerd.png" />
+    <Resource Include="Images\173-in-love-3.png" />
+    <Resource Include="Images\174-hypnotized.png" />
+    <Resource Include="Images\175-cool.png" />
+    <Resource Include="Images\176-shocked.png" />
+    <Resource Include="Images\177-easter.png" />
+    <Resource Include="Images\178-surprised-2.png" />
+    <Resource Include="Images\179-surprised-1.png" />
+    <Resource Include="Images\180-surprised.png" />
+    <Resource Include="Images\181-furious.png" />
+    <Resource Include="Images\182-sad-6.png" />
+    <Resource Include="Images\183-sad-5.png" />
+    <Resource Include="Images\184-sad-4.png" />
+    <Resource Include="Images\185-sad-3.png" />
+    <Resource Include="Images\186-angry-1.png" />
+    <Resource Include="Images\187-rich.png" />
+    <Resource Include="Images\188-sad-2.png" />
+    <Resource Include="Images\189-happy-1.png" />
+    <Resource Include="Images\190-sad-1.png" />
+    <Resource Include="Images\191-sad.png" />
+    <Resource Include="Images\192-smile.png" />
+    <Resource Include="Images\193-in-love-2.png" />
+    <Resource Include="Images\194-happy.png" />
+    <Resource Include="Images\195-kiss-1.png" />
+    <Resource Include="Images\196-in-love-1.png" />
+    <Resource Include="Images\197-in-love.png" />
+    <Resource Include="Images\198-kiss.png" />
+    <Resource Include="Images\199-angry.png" />
+    <Resource Include="Images\200-sleepy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\xunit.analyzers.1.16.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+    <Analyzer Include="..\packages\xunit.analyzers.1.16.0\analyzers\dotnet\cs\xunit.analyzers.fixes.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\xunit.core.2.9.2\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.9.2\build\xunit.core.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.core.2.9.2\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.9.2\build\xunit.core.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
+  </Target>
+  <Import Project="..\packages\xunit.core.2.9.2\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.9.2\build\xunit.core.targets')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.12.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
+</Project>
